@@ -1,0 +1,10 @@
+def mostrar_menu():
+    print("                 ************************************************************************")
+    print("                  la siguiente es una app de manejo de stock para una verduleria por ejemplo")
+    print("                 ************************************************************************")
+    print("                                       seleccione la opcion deseada")
+    print("                  ************************************************************************")
+    print("                         1. Ingresar Producto Nuevo - Nueva verdura")
+    print("                         2. Ver stock de todos los productos / cantidades almacenadas")
+    print("                         3. Ingresar mas unidades del producto existente")
+    print("                         4. Ver cantidades de un Producto (item) en especifico")

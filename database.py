@@ -1,6 +1,6 @@
 import mysql.connector
 
-def conectar_db(host="localhost", user="tu_usuario", password="tu_contraseña", database="tu_basededatos"):
+def conectar_db(host="localhost", user="usuario", password="contraseña", database="basededatos"):
     """
     Establece una conexión a la base de datos MySQL.
 
