@@ -1,4 +1,4 @@
-name: 'introduccion a la programacion y bd'
+name: 'introduccion'
 
 services:
   db:
