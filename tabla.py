@@ -2,7 +2,7 @@ import mysql.connector
 from mysql.connector import errorcode
 
 def crear_tabla_productos_si_no_existe(conexion):
-    
+    # Crear tabla productos si no existe aun en la DB
     tabla_productos = 'productos'
     cantidad = 'cantidad INT, nombre_item VARCHAR(150)'
     cursor = conexion.cursor()

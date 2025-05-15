@@ -1,7 +1,7 @@
 import mysql.connector
 
 def conectar_db(host="localhost", user="usuario", password="contraseña", database="basededatos"):  
-    # Return: mysql.connector.MySQLConnection: El objeto de conexión si la conexión es exitosa,
+    # Establecer la conexión y retorna: mysql.connector.MySQLConnection: El objeto de conexión si la conexión es exitosa
     try:
         mydb = mysql.connector.connect(
             host=host,
