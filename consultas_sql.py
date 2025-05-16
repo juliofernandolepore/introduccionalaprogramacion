@@ -24,7 +24,7 @@ def verificar_producto(conexion, nombre_producto):
     # funcion para consultar en la db si existe o no un producto, retorna booleano
     cursor = conexion.cursor()
     sql = "SELECT nombre_item FROM productos WHERE nombre_item = %s"
-    valores = (nombre_producto)
+    valores = (nombre_producto,)
     try:
         cursor.execute(sql, valores)
         resultado = cursor.fetchone()
@@ -33,7 +33,8 @@ def verificar_producto(conexion, nombre_producto):
         else:            
             return False
     except mysql.connector.Error as err:
-        print(f"Error al consultar el producto: {err}")
+        print(f"Error al consultar el producto: {nombre_producto}")
+        print(err)
         return False
     finally:
         if cursor:
