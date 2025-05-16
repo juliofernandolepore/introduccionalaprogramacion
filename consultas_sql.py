@@ -3,28 +3,28 @@ import mysql.connector
 def insertar_producto(conexion, nombre_producto, cantidad):
     # inserta un producto nuevo (nombre y cantidad), retorna un booleano
     cursor = conexion.cursor()
-    sql = "INSERT INTO productos (nombre_producto, cantidad) VALUES (%s, %s)"
+    sql = "INSERT INTO productos (nombre_item, cantidad) VALUES (%s, %s)"
     valores = (nombre_producto, cantidad)
     try:
         cursor.execute(sql, valores)
         conexion.commit()
-        print(f"Se insertó el producto '{nombre_producto}' con cantidad {cantidad}.")
+        print(f"Se insertó el producto '{nombre_producto}' con la cantidad {cantidad}.")
         return True
     except mysql.connector.Error as err:
-        print(f"Error al insertar el producto: {err}")
+        print(f"Error: {err}")
         return False
     finally:
         if cursor:
             cursor.close()
         if conexion and conexion.is_connected():
             conexion.close()
-            print("Conexión a la base de datos MySQL cerrada.")
+           
 
 def verificar_producto(conexion, nombre_producto):
     # funcion para consultar en la db si existe o no un producto, retorna booleano
     cursor = conexion.cursor()
-    sql = "SELECT nombre_producto FROM productos WHERE nombre_producto = %s"
-    valores = (nombre_producto,)
+    sql = "SELECT nombre_item FROM productos WHERE nombre_item = %s"
+    valores = (nombre_producto)
     try:
         cursor.execute(sql, valores)
         resultado = cursor.fetchone()

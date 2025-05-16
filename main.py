@@ -6,6 +6,6 @@ if __name__ == "__main__":
     tabla.crear_tabla_productos_si_no_existe(conexion)
     database.cerrar_db(conexion)    
     # seccion de app con el usuario
-    valor = opciones.mostrar_menu()
+    opciones.mostrar_menu()
     
     

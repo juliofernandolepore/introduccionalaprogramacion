@@ -9,7 +9,7 @@ def conectar_db(host="localhost", user="usuario", password="contraseña", databa
             password=password,
             database=database
         )
-        print("Database: ¡Conexión exitosa a db!")
+        print("sistema online")
         return mydb
     except mysql.connector.Error as err:
         print(f"Database: Error al conectar a bd: {err}")

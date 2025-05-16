@@ -1,5 +1,5 @@
 def str_largo(nombre, min, max):
-    nombre_ingresado = nombre.Lower() 
+    nombre_ingresado = nombre.lower() 
     if len(nombre_ingresado) > 150:
         return nombre+" supera el maximo permitido de caracteres "+ max
     elif len(nombre_ingresado) < 2:
