@@ -3,10 +3,9 @@ import database, tabla, opciones
 # muestra el menu general al inicio de la carga
 def mostrar_menu():
     
-        print("                                        *********************************")
-        print("                                          bienvenido al menu general")
+        
         print("                 ************************************************************************")
-        print("                  la siguiente es una app de manejo de stock para una verduleria por ejemplo")
+        print("                                 app Manejo de stock en una verduleria de barrio")
         print("                 ************************************************************************")
         print("                                       seleccione la opcion deseada")
         print("                  ************************************************************************")
@@ -25,7 +24,8 @@ def mostrar_menu():
                 print("opcion seleccionada: 2")
                 opciones.ver_todoslosproductos()                
             elif int(opcion) == 3:
-                print("opcion seleccionada: 3")                
+                print("opcion seleccionada: 3")
+                opciones.actualizar_cantidad()                
             elif int(opcion) == 4:
                 print("opcion seleccionada: 4")
             elif int(opcion) == 5:

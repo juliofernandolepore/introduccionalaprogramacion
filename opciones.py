@@ -1,8 +1,5 @@
 import database, consultas_sql, bucles, main
-
-
-
-# sub menu ingresar producto nuevo (opcion 1)
+# funciones que se corresponden a las opciones del menu principal
 def ingresar_producto():
     # function para ingresar producto nuevo, y consultar su existencia en tabla previo a su registro
     producto = input("ingrese nuevo item o nuevo producto: ")
@@ -31,9 +28,23 @@ def ver_todoslosproductos():
             
         print("-" * 60)
     else:
-        print("No se encontraron Proctos registrados")        
-     
-    
+        print("aun no hay registro de productos en el sistema")        
+    main.mostrar_menu()
+
+def actualizar_cantidad():
+# function para actualizar las cantidades un producto por solicitud
+    producto = input("ingrese producto al cual quiere modificar stock: ")
+    str_validado = bucles.str_largo(producto, 3, 150)
+# instanciar una conexion
+    conexion = database.conectar_db("localhost", "fernandolepore", "12345678fer", "basededatos1")    
+# llamar al model, o consulta sql para 1 producto para verificar su existencia antes del update
+    booleano = consultas_sql.verificar_producto(conexion, str_validado)
+    if booleano:   
+        cantidad = input(f"ingrese el nuevo valor de stock para: {producto}")
+        cant_validada = bucles.limite_cantidad(cantidad, 1000)        
+        # llamar a la consulta update, ya que el producto es existente
+        # actualizar cantidades (update)
+    main.mostrar_menu()
     
     
                

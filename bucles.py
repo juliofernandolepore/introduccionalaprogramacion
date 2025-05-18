@@ -18,4 +18,4 @@ def limite_cantidad(cantidad, max):
     while int(cantidad) < 1:
         print("el minimo a ingresar es 1")
         cantidad = int(input("intente nuevamente: "))
-    
+    return int(cantidad)
