@@ -10,14 +10,12 @@ def str_largo(nombre, min, max):
             nombre = input("ingresa un nombre mas largo: ")               
     return nombre.lower()
     
-def limite_cantidad(cantidad, max):
-    entero = int(cantidad)
+def limite_cantidad(cantidad, max):    
     # validar que solo ingrese un numero entero
-    if entero > max:
-        print(entero+" supera el maximo permitido de caracteres "+ max)
-        return
-    elif entero < 1:
+    while int(cantidad) > max:
+        print(f" la {cantidad} supera el maximo permitido de caracteres {max} ")
+        cantidad = int(input("intente nuevamente con un numero inferior: "))
+    while int(cantidad) < 1:
         print("el minimo a ingresar es 1")
-        return
-    else: 
-        return entero
+        cantidad = int(input("intente nuevamente: "))
+    

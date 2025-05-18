@@ -74,19 +74,24 @@ def ejecutar_consulta(conexion, sql, valores=None):
             cursor.close()
         return None
 
-def obtener_resultados(cursor):
-    """
-    Obtiene todos los resultados de un cursor.
-
-    Args:
-        cursor (mysql.connector.cursor.MySQLCursor): El objeto cursor.
-
-    Returns:
-        list: Una lista de los resultados obtenidos.
-    """
-    if cursor:
-        return cursor.fetchall()
-    else:
-        return []
+def obtener_productos(conexion):
+    cursor = conexion.cursor()
+    consulta = "SELECT nombre_item, cantidad, fecha_creacion FROM productos"
+    try:
+        cursor.execute(consulta)
+        columnas = cursor.column_names
+        datos_productos = []
+        for fila in cursor.fetchall():
+            fila_dict = dict(zip(columnas,fila))
+            if 'fecha_creacion' in fila_dict and fila_dict['fecha_creacion'] is not None:
+                fila_dict['fecha_creacion'] = str(fila_dict["fecha_creacion"])
+                datos_productos.append(fila_dict)
+        return datos_productos
+    except mysql.connector.Error as errot:
+        print("error al efectuar la consulta")
+        return None
+    finally:
+        if cursor:
+            cursor.close()
 
                               
