@@ -1,18 +1,14 @@
 def str_largo(nombre, min, max):
-    while True:
-        nombre_ingresado = nombre.lower()
-        largo = len(nombre_ingresado) 
-        if largo > max:
+    while len(nombre) > max:
             print(f"el maximo es :{max}")
-            print(f"ingresaste: {largo} caracteres")
-            nombre_ingresado = input("ingresa un nombre mas corto").lower()
-            return
-        elif largo < min:
+            print(f"ingresaste: {len(nombre)} caracteres")
+            nombre = input("ingresa un nombre mas corto: ")
+            
+    while len(nombre) < min:
             print(f"el minimo es: {min} caracteres")
-            print(f"ingresaste: {largo} caracteres")
-            return
-        else: 
-            return nombre_ingresado
+            print(f"ingresaste: {len(nombre)} caracteres")
+            nombre = input("ingresa un nombre mas largo: ")               
+    return nombre.lower()
     
 def limite_cantidad(cantidad, max):
     entero = int(cantidad)
