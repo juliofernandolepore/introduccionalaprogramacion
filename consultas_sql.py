@@ -66,37 +66,13 @@ def verificar_producto(conexion, nombre_producto):
         if conexion and conexion.is_connected():
             conexion.close()
 
-def ejecutar_consulta(conexion, sql, valores=None):
-    """
-    Ejecuta una consulta SQL en la base de datos.
+def eliminar_todoslosproductos(conexion, nombre_producto):
+    # consulta sql para eliminar item y sus cantidades
+    return False
 
-    Argumentos:
-        conexion (mysql.connector.MySQLConnection): El objeto de conexión.
-        sql (str): La consulta SQL a ejecutar.
-        valores (tuple, optional): Los valores para la consulta (para consultas preparadas).
-                                   Defaults to None.
-
-    Return:
-        mysql.connector.cursor.MySQLCursor: El objeto cursor si la consulta se ejecuta con éxito,
-                                            None en caso de error.
-    """
-    cursor = None
-    try:
-        if conexion and conexion.is_connected():
-            cursor = conexion.cursor()
-            if valores:
-                cursor.execute(sql, valores)
-            else:
-                cursor.execute(sql)
-            return cursor
-        else:
-            print("Database: No hay conexión a la base de datos para ejecutar la consulta.")
-            return None
-    except mysql.connector.Error as err:
-        print(f"Database: Error al ejecutar la consulta: {err}")
-        if cursor:
-            cursor.close()
-        return None
+def modificar_cantidades(conexion, nombre_producto, cantidad):
+    # consulta sql para modificar stock
+    return False
 
 
 
